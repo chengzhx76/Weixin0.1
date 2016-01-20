@@ -15,7 +15,7 @@
     <!-- 支持注解 -->
     <mvc:annotation-driven />
   
-    <mvc:resources location="/resources/" mapping="/resources/**"/>
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
 
 	<!-- 扫描controller（controller层注入） -->
 	<context:component-scan base-package="com.cheng.weixin.web.controllers" use-default-filters="false">
