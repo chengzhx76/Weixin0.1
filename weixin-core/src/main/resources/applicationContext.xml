@@ -18,7 +18,7 @@
 	<!-- 引入微信配置文件 -->
 	<context:property-placeholder location="classpath:weixinconfig.properties" />
 
-    <!-- 打开Spring的Annotation支持 -->
+	<!-- 打开Spring的Annotation支持 -->
 	<context:annotation-config />
 
 	<!-- 扫描Service注入  -->

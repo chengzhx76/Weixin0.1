@@ -1,0 +1,26 @@
+@charset "UTF-8";
+body {
+  background-color: #eee;
+}
+.loginBox {
+  width: 400px;
+  height: 350px;
+  color: #000;
+  margin: 120px auto;
+  /*background: red;*/
+}
+.loginBox h2 {
+  font-family: Helvetica, Georgia, Arial, sans-serif, 黑体;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #0663a2;
+}
+.loginBox .loginForm {
+  height: 280px;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  background-color: #fff;
+}
+

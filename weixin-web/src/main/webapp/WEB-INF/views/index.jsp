@@ -6,23 +6,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>测试sitemesh3</title>
+    <title>首页</title>
 </head>
 <body>
-
-<ol class="breadcrumb">
-    <li class="active">首页</li>
-</ol>
-<div id="top">
-    <h3 class="alert alert-info text-center">站点提醒</h3>
-    <div class="msg">
-        <span class="label label-info">待审核人数</span>
-        &nbsp | &nbsp&nbsp
-        <span class="badge"><a href="user/users">12</a></span>
+    <ol class="breadcrumb">
+        <li class="active">首页</li>
+    </ol>
+    <div id="top">
+        <h3 class="alert alert-info text-center">站点提醒</h3>
+        <div class="msg">
+            <span class="label label-info">待审核人数</span>
+            &nbsp | &nbsp&nbsp
+            <span class="badge"><a href="user/users">12</a></span>
+        </div>
     </div>
-</div>
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">系统信息</h3>
