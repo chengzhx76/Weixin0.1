@@ -10,28 +10,46 @@
 </head>
 <body>
   <div class="container">
-    <div class="loginBox">
-      <h2>微信管理后台登录</h2>
-      <section class="loginForm">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#form" aria-controls="form" role="tab" data-toggle="tab">帐号登录</a>
-          </li>
-          <li role="presentation">
-            <a href="#wxscan" aria-controls="scan" role="tab" data-toggle="tab">微信扫描登录</a>
-          </li>
-        </ul>
+    <header>
+      <h2 class="text-center">微信管理后台登录</h2>
+    </header>
+    <section class="loginBox center-block">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#form" aria-controls="form" role="tab" data-toggle="tab">帐号登录</a>
+        </li>
+        <li role="presentation">
+          <a href="#wxscan" aria-controls="scan" role="tab" data-toggle="tab">微信扫描登录</a>
+        </li>
+      </ul>
 
-        <div class="tab-content" style="padding: 10px">
-          <div role="tabpanel" class="tab-pane active" id="form">
-            表单登录
-          </div>
-          <div role="tabpanel" class="tab-pane" id="wxscan">
-            微信扫描登录
-          </div>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="form">
+          <form>
+            <div class="form-group">
+              <label for="username">登录名：</label>
+              <input type="text" class="form-control" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="password">密码：</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <hr/>
+            <input id="submit" class="btn btn-primary" type="submit" value="登陆"> &nbsp;&nbsp;
+            <label for="rememberMe" title="下次不需要再登录">
+              <input type="checkbox" id="rememberMe" name="rememberMe"> 记住我（公共场所慎用）
+            </label>
+          </form>
         </div>
-      </section>
-    </div>
+        <div role="tabpanel" class="tab-pane" id="wxscan">
+          <img src="../resources/img/weixin_login.jpg" alt="扫描登陆" class="img-responsive img-thumbnail">
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h5 class="text-center">Copyright &copy; 2015-2016 <a href="###">微信管理后台</a> Powered By Wxin v0.1</h5>
+    </footer>
   </div>
 
   <script src="../resources/js/jquery-1.11.1.min.js"></script>

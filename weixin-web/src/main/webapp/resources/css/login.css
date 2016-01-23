@@ -2,25 +2,35 @@
 body {
   background-color: #eee;
 }
-.loginBox {
-  width: 400px;
-  height: 350px;
-  color: #000;
-  margin: 120px auto;
-  /*background: red;*/
-}
-.loginBox h2 {
+header h2.text-center {
+  height: 50px;
+  line-height: 50px;
   font-family: Helvetica, Georgia, Arial, sans-serif, 黑体;
-  text-align: center;
   font-size: 36px;
   font-weight: bold;
   color: #0663a2;
+  margin-top: 100px;
 }
-.loginBox .loginForm {
-  height: 280px;
+.loginBox {
+  width: 400px;
+  height: 330px;
+  color: #000;
   padding: 10px;
   border: 1px solid #e5e5e5;
   border-radius: 5px;
   background-color: #fff;
 }
-
+.tab-content #form {
+  padding-top: 25px;
+  padding-left: 15px;
+  padding-right: 25px;
+}
+.tab-content #wxscan img {
+  width: 260px;
+  height: 240px;
+  margin-top: 18px;
+  margin-left: 60px;
+}
+footer {
+  margin-top: 20px;
+}

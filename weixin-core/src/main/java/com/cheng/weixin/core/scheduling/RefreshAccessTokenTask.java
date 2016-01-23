@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 public class RefreshAccessTokenTask {
 	
 	private static final Logger log = LoggerFactory.getLogger(RefreshAccessTokenTask.class);
-	private static String accessToken = "6E7oFSezSNJ-BvLh2cn4JMxI0EuoGVGmE00Uwc-o12HLOcPn7UlUl9MwtpJZFzQhOAiTBbidZuZlyk8iUWcLUheuAm0_rHJNnndTsLkeRmkUSGhAFADBP";
-	
+	private static String accessToken = "o12HLOcPn7UlUl9MwtpJZFzQhOAiTBbidZuZlyk8iUWcLUheuAm0_rHJNnndTsLkeRmkUSGhAFADBP";
+
 	static {
 		WeixinContent.getInstance().setAccessToken(accessToken);
 		log.info("已把access_token放入");
