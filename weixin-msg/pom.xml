@@ -11,33 +11,37 @@
     <name>weixin-msg Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>weixin-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-        </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>weixin-core</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+      </dependency>
     </dependencies>
     <build>
-        <finalName>msg</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <scanIntervalSeconds>0</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/${project.build.finalName}</contextPath>
-                    </webApp>
-                </configuration>
-            </plugin>
-        </plugins>
+      <finalName>msg</finalName>
+      <plugins>
+        <plugin>
+          <groupId>org.zeroturnaround</groupId>
+          <artifactId>jrebel-maven-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <groupId>org.mortbay.jetty</groupId>
+          <artifactId>jetty-maven-plugin</artifactId>
+          <configuration>
+            <scanIntervalSeconds>0</scanIntervalSeconds>
+            <webApp>
+              <contextPath>/${project.build.finalName}</contextPath>
+            </webApp>
+          </configuration>
+        </plugin>
+      </plugins>
     </build>
 </project>
