@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="/commons/taglibs.jsp"%>
+<%@ include file="/WEB-INF/include/taglibs.jsp"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>微信管理后台-<sitemesh:write property='title'/></title>
-    <link href="${ctxResources}/css/bootstrap.css" rel="stylesheet">
-    <link href="${ctxResources}/css/global.css" rel="stylesheet">
+    <link href="${ctxStatic}/css/bootstrap.css" rel="stylesheet">
+    <link href="${ctxStatic}/css/global.css" rel="stylesheet">
     <sitemesh:write property='head'/>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="" class="navbar-header">
-                    <img src="${ctxResources}/img/logo.jpg" style="width:75px">
+                    <img src="${ctxStatic}/img/logo.jpg" style="width:75px">
                 </a>
             </div>
             <div><p class="navbar-text">微信 管理后台</p></div>
@@ -100,8 +100,8 @@
         </div>
     </footer>
 
-    <script src="${ctxResources}/js/jquery-1.11.1.min.js"></script>
-    <script src="${ctxResources}/js/bootstrap.js"></script>
+    <script src="${ctxStatic}/js/jquery-1.11.1.min.js"></script>
+    <script src="${ctxStatic}/js/bootstrap.js"></script>
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>

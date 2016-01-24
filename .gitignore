@@ -1,6 +1,7 @@
 #忽略的文件及文件夹
 /target/*
 .idea
-weixin*.iml
+*.iml
+#rebel.xml
 #不忽略的文件
 !.gitignore

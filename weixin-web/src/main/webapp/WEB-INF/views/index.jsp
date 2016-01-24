@@ -20,7 +20,7 @@
         <div class="msg">
             <span class="label label-info">待审核人数</span>
             &nbsp | &nbsp&nbsp
-            <span class="badge"><a href="user/users">12</a></span>
+            <span class="badge"><a href="###">12</a></span>
         </div>
     </div>
     <div class="panel panel-info">
