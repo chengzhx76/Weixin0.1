@@ -16,15 +16,15 @@ import java.io.OutputStream;
  * Date: 2016/1/24
  */
 @Controller
-//@RequestMapping("${adminPath}")
+//@RequestMapping("dl")
 public class LoginController extends BaseController {
 
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login() {
-        return "login";
+        return "login/login";
     }
 
-    @RequestMapping(value = "/drawCheckCode",method = RequestMethod.GET)
+    @RequestMapping(value = "drawCheckCode",method = RequestMethod.GET)
     public void drawCheckCode(HttpServletResponse resp, HttpSession session) throws IOException {
         resp.setContentType("image/jpg");
         resp.setHeader("Pragma", "No-cache");
