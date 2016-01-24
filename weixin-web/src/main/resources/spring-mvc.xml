@@ -12,18 +12,23 @@
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
-	<context:property-placeholder ignore-unresolvable="true" location="classpath:globalconf.properties"/>
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:/globalconf.properties"/>
 
 	<!-- 支持注解 -->
 	<mvc:annotation-driven />
   
-	<mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+	<mvc:resources mapping="/resources/**" location="/static/" cache-period="31536000"/>
 
 	<!-- 扫描controller（controller层注入） -->
 	<context:component-scan base-package="com.cheng.weixin.web.controllers" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
+
+
+  <!-- 定义无Controller的path <->view直接映射 -->
+  <mvc:view-controller path="/" view-name="/index"/>
+
 
 	<!-- 对模型视图添加前后缀 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

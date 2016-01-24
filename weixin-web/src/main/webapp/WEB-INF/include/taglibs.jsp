@@ -7,4 +7,4 @@
 
 
 <c:set var="basePath" value="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}"/>
-<c:set var="ctxStatic" value="${basePath}/static"/>
+<c:set var="ctxStatic" value="${basePath}/resources"/>
