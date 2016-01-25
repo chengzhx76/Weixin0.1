@@ -16,7 +16,10 @@
 
 	<!-- 支持注解 -->
 	<mvc:annotation-driven />
-  
+
+  <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+  <mvc:default-servlet-handler />
+
 	<mvc:resources mapping="/resources/**" location="/static/" cache-period="31536000"/>
 
 	<!-- 扫描controller（controller层注入） -->
@@ -25,10 +28,8 @@
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
 
-
   <!-- 定义无Controller的path <->view直接映射 -->
   <mvc:view-controller path="/" view-name="/index"/>
-
 
 	<!-- 对模型视图添加前后缀 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -20,7 +20,7 @@ public class LoginController extends BaseController {
 
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login() {
-        return "login/login";
+        return "login";
     }
 
     @RequestMapping(value = "drawCheckCode",method = RequestMethod.GET)

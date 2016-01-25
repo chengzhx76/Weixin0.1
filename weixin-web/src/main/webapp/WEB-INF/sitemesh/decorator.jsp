@@ -1,15 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/include/taglibs.jsp"%>
+<%@ taglib prefix="sitemesh" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>微信管理后台-<sitemesh:write property='title'/></title>
+    <title>微信管理后台-<sitemesh:title/></title>
     <link href="${ctxStatic}/css/bootstrap.css" rel="stylesheet">
     <link href="${ctxStatic}/css/global.css" rel="stylesheet">
-    <sitemesh:write property='head'/>
+    <sitemesh:head/>
 </head>
 <body>
     <!-- 导航栏Start -->
@@ -87,7 +88,7 @@
 
             <!-- 主要内容Start -->
             <section id="main-content" class="center-block col-md-10">
-                <sitemesh:write property='body'/>
+                <sitemesh:body/>
             </section>
             <!-- 主要内容End -->
 
