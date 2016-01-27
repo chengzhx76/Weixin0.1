@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -21,6 +22,21 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String login() {
         return "login";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(HttpServletRequest request) {
+
+        log.info("=========:"+request.getParameter("shiroLoginFailure"));
+
+        return "login";
+    }
+    @RequestMapping(value = "unauth",method = RequestMethod.GET)
+    public String unauth() {
+
+        log.info("没有权限访问!");
+
+        return "unauth";
     }
 
     @RequestMapping(value = "drawCheckCode",method = RequestMethod.GET)

@@ -21,6 +21,7 @@
       <mysql.version>5.1.34</mysql.version>
       <druid.version>druid.version</druid.version>
       <shrio.version>1.2.3</shrio.version>
+      <shiro-spring.version>1.2.3</shiro-spring.version>
 
       <servlet.version>3.1.0</servlet.version>
       <jstl.version>1.2</jstl.version>
@@ -191,6 +192,12 @@
           <artifactId>shiro-web</artifactId>
           <version>${shrio.version}</version>
         </dependency>
+        <dependency>
+          <groupId>org.apache.shiro</groupId>
+          <artifactId>shiro-spring</artifactId>
+          <version>${shiro-spring.version}</version>
+        </dependency>
+
         <!-- Spring begin -->
         <dependency>
           <groupId>org.springframework</groupId>

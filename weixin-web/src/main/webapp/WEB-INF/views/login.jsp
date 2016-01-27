@@ -33,14 +33,14 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="form">
-        <form>
+        <form action="${basePath}/login" method="post">
           <div class="form-group">
             <label for="username">登录名：</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username">
           </div>
           <div class="form-group">
             <label for="password">密码：</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
           </div>
           <hr/>
           <input id="submit" class="btn btn-primary" type="submit" value="登陆"> &nbsp;&nbsp;
