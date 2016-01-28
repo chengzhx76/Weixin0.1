@@ -1,4 +1,4 @@
-package com.cheng.weixin.core.Dao;
+package com.cheng.weixin.core.dao;
 
 import java.util.List;
 

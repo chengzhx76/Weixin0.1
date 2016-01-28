@@ -22,6 +22,7 @@
       <druid.version>druid.version</druid.version>
       <shrio.version>1.2.3</shrio.version>
       <shiro-spring.version>1.2.3</shiro-spring.version>
+      <aspectj.version>1.8.6</aspectj.version>
 
       <servlet.version>3.1.0</servlet.version>
       <jstl.version>1.2</jstl.version>
@@ -197,7 +198,16 @@
           <artifactId>shiro-spring</artifactId>
           <version>${shiro-spring.version}</version>
         </dependency>
-
+        <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjrt</artifactId>
+          <version>${aspectj.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjweaver</artifactId>
+          <version>${aspectj.version}</version>
+        </dependency>
         <!-- Spring begin -->
         <dependency>
           <groupId>org.springframework</groupId>

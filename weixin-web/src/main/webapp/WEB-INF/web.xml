@@ -6,7 +6,7 @@
   <description>weixin</description>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml,classpath:spring-shrio.xml</param-value>
+    <param-value>classpath:applicationContext.xml,classpath:spring-shrio.xml,classpath:spring-mybatis.xml</param-value>
   </context-param>
   <filter>
     <filter-name>SpringEncodingFilter</filter-name>
@@ -54,7 +54,6 @@
     <filter-name>shiroFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
 
   <filter>
     <filter-name>sitemesh</filter-name>

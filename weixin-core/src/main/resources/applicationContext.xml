@@ -16,7 +16,7 @@
     http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
 	<!-- 引入微信配置文件 -->
-	<context:property-placeholder location="classpath:weixinconfig.properties" />
+	<context:property-placeholder location="classpath:weixinconfig.properties,classpath:jdbc.properties" />
 
 	<!-- 打开Spring的Annotation支持 -->
 	<context:annotation-config />
