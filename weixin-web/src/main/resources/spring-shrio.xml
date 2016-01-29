@@ -24,6 +24,8 @@
         /login = authc
         /unauth = anon
         /resources/** = anon
+        /logout = logout
+        /** = user
       </value>
     </property>
   </bean>
@@ -46,6 +48,5 @@
     <!-- loginurl：用户登陆地址，此地址是可以http访问的url地址 -->
     <property name="loginUrl" value="/login" />
   </bean>
-
 
 </beans>

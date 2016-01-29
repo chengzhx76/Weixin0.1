@@ -42,7 +42,7 @@ public class WxFormAuthenticationFilter extends FormAuthenticationFilter {
         String captcha = getCaptcha(request);
         boolean mobile = isMobileLogin(request);
 
-        return new WxUsernamePasswordToken(username, password.toCharArray(), rememberMe,host,mobile,captcha);
+        return new WxUsernamePasswordToken(username, password.toCharArray(), rememberMe, host, mobile, captcha);
     }
     // 获取验证码
     protected String getCaptcha(ServletRequest request) {
@@ -62,7 +62,8 @@ public class WxFormAuthenticationFilter extends FormAuthenticationFilter {
     }
 
     @Override
-    protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
+    protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e,
+                                     ServletRequest request, ServletResponse response) {
         String className = e.getClass().getName();
         String message = "";
         if(IncorrectCredentialsException.class.getName().equals(className)

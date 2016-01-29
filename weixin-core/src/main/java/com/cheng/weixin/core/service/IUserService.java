@@ -1,19 +1,19 @@
 package com.cheng.weixin.core.service;
 
+
+import com.cheng.weixin.core.dao.UserDaoMapper;
 import com.cheng.weixin.core.entity.User;
 
-import java.util.List;
-
-/**
+/** 用户业务处理
  * Desc:
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public interface IUserService {
+public interface IUserService extends ICrudService<UserDaoMapper, User> {
     /**
-     * 获取全部用户
+     * 根据用户名获取用户
+     * @param username
      * @return
      */
-    List<User> getAll();
-
+    User getUserByUsername(String username);
 }

@@ -20,6 +20,12 @@ public interface BaseDaoMapper<T> {
      */
     List<T> loadAll();
     /**
+     * 保存实体
+     * @param entity
+     * @return
+     */
+    T save(T entity);
+    /**
      * 更新数据
      * @param entity
      * @return
@@ -28,8 +34,8 @@ public interface BaseDaoMapper<T> {
 
     /**
      * 删除数据（一般为逻辑删除）
-     * @param entity
+     * @param id
      * @return
      */
-    int delete(T entity);
+    int delete(int id);
 }

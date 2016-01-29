@@ -3,10 +3,12 @@ package com.cheng.weixin.core.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.cheng.weixin.core.common.WeixinUrl;
 import com.cheng.weixin.core.response.model.Group;
 import com.cheng.weixin.core.service.IGroupService;
 import com.cheng.weixin.core.utils.HttpUtils;
 import com.cheng.weixin.core.utils.WeixinContent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,7 +16,10 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class GroupService extends BaseWeixinService implements IGroupService {
+public class GroupService extends CrudService implements IGroupService {
+
+	@Autowired
+	protected WeixinUrl weixinUrl;
 
 	@Override
 	public Group addGroup(String name) {
