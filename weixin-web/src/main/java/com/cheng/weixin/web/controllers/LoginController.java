@@ -27,7 +27,8 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(HttpServletRequest request) {
 
-        log.info("=========:"+request.getParameter("shiroLoginFailure"));
+        log.info("====shiroLoginFailure=====:"+request.getAttribute("shiroLoginFailure"));
+        log.info("====message=====:"+request.getAttribute("message"));
 
         return "login";
     }

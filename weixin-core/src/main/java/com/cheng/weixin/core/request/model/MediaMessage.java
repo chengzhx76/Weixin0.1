@@ -7,12 +7,12 @@ package com.cheng.weixin.core.request.model;
 public class MediaMessage extends BaseMessage {
 	
 	private static final long serialVersionUID = 1L;
-	private Media Media;
+	private WxMedia Media;
 	
-	public Media getMedia() {
+	public WxMedia getMedia() {
 		return Media;
 	}
-	public void setMedia(Media media) {
+	public void setMedia(WxMedia media) {
 		this.Media = media;
 	}
 	

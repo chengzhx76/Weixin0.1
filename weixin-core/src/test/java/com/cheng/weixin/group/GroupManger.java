@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.cheng.weixin.core.exception.WeixinException;
-import com.cheng.weixin.core.response.model.Group;
+import com.cheng.weixin.core.response.model.WxGroup;
 import com.cheng.weixin.core.service.IGroupService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,15 +26,15 @@ public class GroupManger {
 
 	@Test
 	public void addGroup() {
-		Group group = groupService.addGroup("测试组01");
+		WxGroup group = groupService.addGroup("测试组01");
 		System.out.println(group);
 	}
 
 	@Test
 	public void getAllGroup() {
 		try {
-			List<Group> groups = groupService.getAllGroup();
-			for(Group group : groups) {
+			List<WxGroup> groups = groupService.getAllGroup();
+			for(WxGroup group : groups) {
 				System.out.println(group);
 			}
 		} catch (WeixinException e) {
@@ -73,10 +73,10 @@ public class GroupManger {
 
 	@Test
 	public void test() {
-		Group group = new Group();
+		WxGroup group = new WxGroup();
 		group.setId(100);
 		group.setName("测试组01");
-		Map<String, Group> maps = new HashMap<>();
+		Map<String, WxGroup> maps = new HashMap<>();
 		maps.put("group", group);
 
 		System.out.println(JSON.toJSON(maps));
@@ -86,8 +86,8 @@ public class GroupManger {
 		String json = "{\"group\":{\"id\":100,\"name\":\"测试组01\"}}";
 //		Map<String, Map> repMap = new HashMap<>();
 //		JSONObject repMap = JSONObject.parseObject(json);
-		Map<String, Group> repMap = new HashMap<>();
-		repMap = JSONObject.parseObject(json,new TypeReference<Map<String, Group>>(){});
+		Map<String, WxGroup> repMap = new HashMap<>();
+		repMap = JSONObject.parseObject(json,new TypeReference<Map<String, WxGroup>>(){});
 //		Group repGroup = repMap.get("group");
 //		repMap.getObject("group", Group.class);
 //		System.out.println(repMap.getObject("group", Group.class));

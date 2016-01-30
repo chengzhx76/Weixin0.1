@@ -9,12 +9,12 @@ import java.util.List;
 public class NewsMessage extends BaseMessage {
 	
 	private static final long serialVersionUID = 1L;
-	private List<News> Articles;
+	private List<WxNews> Articles;
 	
-	public List<News> getArticles() {
+	public List<WxNews> getArticles() {
 		return Articles;
 	}
-	public void setArticles(List<News> articles) {
+	public void setArticles(List<WxNews> articles) {
 		this.Articles = articles;
 	}
 }

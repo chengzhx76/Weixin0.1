@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.cheng.weixin.core.common.WeixinUrl;
 import com.cheng.weixin.core.enums.MidiaType;
 import com.cheng.weixin.core.exception.BusinessException;
-import com.cheng.weixin.core.response.model.Media;
+import com.cheng.weixin.core.response.model.WxMedia;
 import com.cheng.weixin.core.utils.HttpUtils;
 import com.cheng.weixin.core.utils.WeixinContent;
 import org.junit.Test;
@@ -29,7 +29,7 @@ public class MediaManger {
 
 		try {
 			String content = HttpUtils.postMedia(url, "C:\\Picture\\g.jpg");
-			Media media = JSON.parseObject(content, Media.class);
+			WxMedia media = JSON.parseObject(content, WxMedia.class);
 			System.out.println(media);
 		} catch (BusinessException err) {
 			log.error("发生错误，错误码：{}，错误消息：{}", err.getCode(), err.getErrorMsg());

@@ -6,7 +6,10 @@
   <description>weixin</description>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml,classpath:spring-shrio.xml,classpath:spring-mybatis.xml</param-value>
+    <param-value>
+      classpath:applicationContext.xml,classpath:spring-shrio.xml,
+      classpath:spring-mybatis.xml,classpath:spring-quartz.xml
+    </param-value>
   </context-param>
   <filter>
     <filter-name>SpringEncodingFilter</filter-name>

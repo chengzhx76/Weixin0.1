@@ -22,7 +22,7 @@ public class IndexController extends BaseController {
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
-        List<User> users = userService.getAll();
+        List<User> users = userService.findAll();
         for (User user : users) {
             System.out.println(user);
         }

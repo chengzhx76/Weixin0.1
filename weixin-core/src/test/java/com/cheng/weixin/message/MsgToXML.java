@@ -27,7 +27,7 @@ public class MsgToXML {
 		voiceMsg.setFromUserName("cheng");
 		voiceMsg.setCreateTime(new Date().getTime());
 		voiceMsg.setMsgType(MsgType.voice);
-		Voice voice = new Voice();
+		WxVoice voice = new WxVoice();
 		voice.setMediaId("523646324131");
 		voiceMsg.setVoice(voice);
 
@@ -41,7 +41,7 @@ public class MsgToXML {
 		imgMsg.setCreateTime(new Date().getTime());
 		imgMsg.setMsgType(MsgType.image);
 
-		Image img = new Image();
+		WxImage img = new WxImage();
 		String mediaId = "M8K2WcayqjRaisQMCygVpWk1VDAjL8XMhvB66Y5TpBHsopHViOEOIR4semy9oOAD";
 		img.setMediaId(mediaId);
 		imgMsg.setImage(img);

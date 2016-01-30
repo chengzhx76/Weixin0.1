@@ -2,7 +2,7 @@ package com.cheng.weixin.core.request.model;
 
 import java.io.Serializable;
 
-public class Media implements Serializable {
+public class WxMedia implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String MediaId;
 	private String Title;// 非必须

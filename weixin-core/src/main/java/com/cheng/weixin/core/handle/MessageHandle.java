@@ -4,7 +4,7 @@ import com.cheng.weixin.core.enums.Event;
 import com.cheng.weixin.core.enums.MsgType;
 import com.cheng.weixin.core.enums.Status;
 import com.cheng.weixin.core.exception.MassageException;
-import com.cheng.weixin.core.request.model.Image;
+import com.cheng.weixin.core.request.model.WxImage;
 import com.cheng.weixin.core.request.model.ImageMessage;
 import com.cheng.weixin.core.request.model.TextMessage;
 import com.cheng.weixin.core.utils.XMLUtils;
@@ -195,7 +195,7 @@ public class MessageHandle {
 		imgMsg.setFromUserName(msgMap.get("ToUserName"));
 		imgMsg.setCreateTime(new Date().getTime());
 		imgMsg.setMsgType(MsgType.image);
-		Image img = new Image();
+		WxImage img = new WxImage();
 		String mediaId = "M8K2WcayqjRaisQMCygVpWk1VDAjL8XMhvB66Y5TpBHsopHViOEOIR4semy9oOAD";
 		img.setMediaId(mediaId);
 		imgMsg.setImage(img);

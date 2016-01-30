@@ -7,12 +7,12 @@ package com.cheng.weixin.core.request.model;
 public class MusicMessage extends BaseMessage {
 	
 	private static final long serialVersionUID = 1L;
-	private Music Music;
+	private WxMusic Music;
 	
-	public Music getMusic() {
+	public WxMusic getMusic() {
 		return Music;
 	}
-	public void setMusic(Music music) {
+	public void setMusic(WxMusic music) {
 		this.Music = music;
 	}
 }

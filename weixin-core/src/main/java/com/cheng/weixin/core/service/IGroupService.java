@@ -1,6 +1,6 @@
 package com.cheng.weixin.core.service;
 
-import com.cheng.weixin.core.response.model.Group;
+import com.cheng.weixin.core.response.model.WxGroup;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public interface IGroupService {
 	 * 增加分组
 	 * @param name
 	 */
-	Group addGroup(String name);
+	WxGroup addGroup(String name);
 	/**
 	 * 查询所有分组
 	 * @return
 	 */
-	List<Group> getAllGroup();
+	List<WxGroup> getAllGroup();
 	/**
 	 * 查询用户所在分组
 	 * @param openid

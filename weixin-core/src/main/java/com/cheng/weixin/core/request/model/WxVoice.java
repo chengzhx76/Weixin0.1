@@ -2,7 +2,7 @@ package com.cheng.weixin.core.request.model;
 
 import java.io.Serializable;
 
-public class Image implements Serializable {
+public class WxVoice implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String MediaId;
 

@@ -9,17 +9,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class Group {
+public class WxGroup {
 	private Integer id;
 	private String name;
 	private Integer count;
 	
-	public Group() {}
-	public Group(Integer id) {
+	public WxGroup() {}
+	public WxGroup(Integer id) {
 		this.id = id;
 	}
 	
-	public Group(Integer id, String name) {
+	public WxGroup(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}

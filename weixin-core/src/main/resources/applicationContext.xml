@@ -21,7 +21,8 @@
 	<!-- 打开Spring的Annotation支持 -->
 	<context:annotation-config />
 
-	<!-- 扫描Service注入  -->
+	<!-- 扫描注入  -->
 	<context:component-scan base-package="com.cheng.weixin.core" />
+
 
 </beans>

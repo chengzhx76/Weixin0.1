@@ -7,12 +7,12 @@ package com.cheng.weixin.core.request.model;
 public class ImageMessage extends BaseMessage {
 	
 	private static final long serialVersionUID = 1L;
-	private Image Image;
+	private WxImage Image;
 	
-	public Image getImage() {
+	public WxImage getImage() {
 		return Image;
 	}
-	public void setImage(Image image) {
+	public void setImage(WxImage image) {
 		this.Image = image;
 	}
 	

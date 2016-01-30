@@ -7,12 +7,12 @@ package com.cheng.weixin.core.request.model;
 public class VoiceMessage extends BaseMessage {
 	
 	private static final long serialVersionUID = 1L;
-	private Voice Voice;
+	private WxVoice Voice;
 	
-	public Voice getVoice() {
+	public WxVoice getVoice() {
 		return Voice;
 	}
-	public void setVoice(Voice voice) {
+	public void setVoice(WxVoice voice) {
 		this.Voice = voice;
 	}
 }

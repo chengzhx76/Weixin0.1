@@ -3,7 +3,7 @@ package com.cheng.weixin.menu;
 import com.alibaba.fastjson.JSON;
 import com.cheng.weixin.core.common.WeixinUrl;
 import com.cheng.weixin.core.enums.ActionType;
-import com.cheng.weixin.core.request.model.Menu;
+import com.cheng.weixin.core.request.model.WxMenu;
 import com.cheng.weixin.core.utils.HttpUtils;
 import com.cheng.weixin.core.utils.WeixinContent;
 import org.junit.Test;
@@ -25,29 +25,29 @@ public class AddMenu {
 	@Test
 	public void addMenu() {
 
-		List<Menu> menus = new ArrayList<>();
-		Menu menu = new Menu();
+		List<WxMenu> menus = new ArrayList<>();
+		WxMenu menu = new WxMenu();
 		menu.setName("一级菜单");
 		menu.setType(ActionType.click);
 		menu.setKey("A0001");
 		menus.add(menu);
 
-		Menu menu2 = new Menu();
+		WxMenu menu2 = new WxMenu();
 		menu2.setName("二级菜单");
 		menus.add(menu2);
 
-		List<Menu> subMenu = new ArrayList<>();
-		Menu menu3 = new Menu();
+		List<WxMenu> subMenu = new ArrayList<>();
+		WxMenu menu3 = new WxMenu();
 		menu3.setName("搜索");
 		menu3.setType(ActionType.view);
 		menu3.setUrl("https://m.baidu.com/");
 		subMenu.add(menu3);
-		Menu menu4 = new Menu();
+		WxMenu menu4 = new WxMenu();
 		menu4.setName("学习");
 		menu4.setType(ActionType.view);
 		menu4.setUrl("http://www.ycku.com/");
 		subMenu.add(menu4);
-		Menu menu5 = new Menu();
+		WxMenu menu5 = new WxMenu();
 		menu5.setType(ActionType.click);
 		menu5.setName("赞一下我们");
 		menu5.setKey("B0001");
@@ -55,7 +55,7 @@ public class AddMenu {
 
 		menu2.setSub_button(subMenu);
 
-		Map<String,List<Menu>> button = new HashMap<>();
+		Map<String,List<WxMenu>> button = new HashMap<>();
 		button.put("button", menus);
 
 //		SerializerFeature feature = SerializerFeature.DisableCircularReferenceDetect;

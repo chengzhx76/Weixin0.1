@@ -74,6 +74,7 @@ public class WxFormAuthenticationFilter extends FormAuthenticationFilter {
         }else {
             message = "系统除了点问题请稍后再试！";
             log.error("发生错误{}", e.getMessage());
+            e.printStackTrace();
         }
         request.setAttribute(getFailureKeyAttribute(), className);// 前台可以显现这些错误
         request.setAttribute(getMessageParam(), message);// 用户提醒

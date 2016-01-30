@@ -1,5 +1,6 @@
 package com.cheng.weixin.web.security;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
 /**
@@ -32,5 +33,10 @@ public class WxUsernamePasswordToken extends UsernamePasswordToken {
     }
     public void setMobilelogin(boolean mobilelogin) {
         this.mobilelogin = mobilelogin;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
     }
 }

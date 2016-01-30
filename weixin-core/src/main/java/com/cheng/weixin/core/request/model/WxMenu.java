@@ -13,14 +13,14 @@ import java.util.List;
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class Menu implements Serializable {
+public class WxMenu implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private ActionType type;
 	private String key;
 	private String url;
 	/** 子菜单 **/
-	private List<Menu> sub_button;
+	private List<WxMenu> sub_button;
 	
 	public String getUrl() {
 		return url;
@@ -46,10 +46,10 @@ public class Menu implements Serializable {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	public List<Menu> getSub_button() {
+	public List<WxMenu> getSub_button() {
 		return sub_button;
 	}
-	public void setSub_button(List<Menu> sub_button) {
+	public void setSub_button(List<WxMenu> sub_button) {
 		this.sub_button = sub_button;
 	}
 	

@@ -3,7 +3,7 @@ package com.cheng.weixin.core.service.impl;
 import com.cheng.weixin.core.dao.BaseDaoMapper;
 import com.cheng.weixin.core.entity.BaseEntity;
 import com.cheng.weixin.core.service.ICrudService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,27 +12,32 @@ import java.util.List;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public class CrudService<D extends BaseDaoMapper<T>, T extends BaseEntity<T>>
+@Service
+public abstract class CrudService<D extends BaseDaoMapper<T>, T extends BaseEntity<T>>
         implements ICrudService<D, T> {
 
-    @Autowired
-    protected D dao;
+    //@Autowired
+    //protected D dao;
+
+    public abstract BaseDaoMapper<T> getBaseDao();
 
     /**
      * 根据ID获取单条数据
      * @param id
      * @return
      */
+    @Override
     public T get(int id) {
-        return dao.load(id);
+        return getBaseDao().load(id);
     }
 
     /**
      * 查找所有的数据
      * @return
      */
+    @Override
     public List<T> findAll() {
-        return dao.loadAll();
+        return getBaseDao().loadAll();
     }
 
     /**
@@ -40,15 +45,17 @@ public class CrudService<D extends BaseDaoMapper<T>, T extends BaseEntity<T>>
      * @param entity
      * @return
      */
+    @Override
     public int update(T entity) {
-        return dao.update(entity);
+        return getBaseDao().update(entity);
     }
     /**
      * 保存对象
      * @param entity
      */
+    @Override
     public void add(T entity) {
-        dao.save(entity);
+        getBaseDao().save(entity);
     }
 
     /**
@@ -56,7 +63,8 @@ public class CrudService<D extends BaseDaoMapper<T>, T extends BaseEntity<T>>
      * @param id
      * @return
      */
+    @Override
     public int delete(int id) {
-        return dao.delete(id);
+        return getBaseDao().delete(id);
     }
 }

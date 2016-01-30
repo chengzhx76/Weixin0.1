@@ -3,13 +3,13 @@
 <mapper namespace="com.cheng.weixin.core.dao.UserDaoMapper">
 
   <sql id="userColumns">
-    u.id,u.usernaem,u.password,u.remarks,u.createDate,u.status
+    u.id,u.username,u.password,u.remarks,u.createDate,u.status
   </sql>
 
   <!-- 获取用户信息 -->
   <select id="loadAll" resultType="User">
     select
-    <include refid="userColumns"/>
+      <include refid="userColumns"/>
     from
       user
     AS u
@@ -19,8 +19,8 @@
     select
       <include refid="userColumns"/>
     from
-      user
-    AS u
+      user AS u
+    WHERE
       username=#{username}
   </select>
 

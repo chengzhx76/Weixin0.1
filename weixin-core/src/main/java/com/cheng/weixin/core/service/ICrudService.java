@@ -10,7 +10,7 @@ import java.util.List;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public interface ICrudService<D extends BaseDaoMapper<T>,T extends BaseEntity<T>> {
+public interface ICrudService<D extends BaseDaoMapper<T>, T extends BaseEntity<T>> {
     /**
      * 根据ID获取单条数据
      * @param id

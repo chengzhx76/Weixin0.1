@@ -1,6 +1,6 @@
 package com.cheng.weixin.core.response.model;
 
-public class Media {
+public class WxMedia {
 
 	private String type;
 	private String media_id;
