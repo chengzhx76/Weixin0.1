@@ -37,6 +37,7 @@
   <!-- 安全管理器 -->
   <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
     <property name="realm" ref="userRealm" />
+    <property name="sessionManager" ref="sessionManager"/>
   </bean>
 
   <!-- 自定义 realm -->
@@ -50,6 +51,15 @@
     <property name="hashIterations" value="1024"/>
     <property name="hashSalted" value="true"/>
   </bean>
+
+  <!-- 会话管理配置 -->
+  <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+    <property name="sessionDAO" ref="sessionDAO"/>
+    <property name="globalSessionTimeout" value="1800000"/>
+    <property name="sessionIdCookie" ref="sessionIdCookie"/>
+    <property name="sessionIdCookieEnabled" value="true"/>
+  </bean>
+
   <!-- 会话ID 生成器  -->
   <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
 
