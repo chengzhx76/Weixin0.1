@@ -18,6 +18,12 @@
 </head>
 <body>
 <div class="container">
+  <div id="messageBox">
+    <div class="center-block alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <label id="loginError" class="error /*hidden*/">错误消息！</label>
+    </div>
+  </div>
   <header>
     <h2 class="text-center">微信管理后台登录</h2>
   </header>
@@ -42,6 +48,9 @@
             <label for="password">密码：</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="Password">
           </div>
+          <c:if test="true">
+            <sys:validateCode name="captcha" inputCssStyle="margin-bootom:0;"/>
+          </c:if>
           <hr/>
           <input id="submit" class="btn btn-primary" type="submit" value="登陆"> &nbsp;&nbsp;
           <label for="rememberMe" title="下次不需要再登录">
@@ -54,7 +63,6 @@
       </div>
     </div>
   </section>
-<div>img<img src="${basePath}/drawCheckCode"></div>
   <footer>
     <h5 class="text-center">Copyright &copy; 2015-2016 <a href="###">微信管理后台</a> Powered By Wxin v0.1</h5>
   </footer>

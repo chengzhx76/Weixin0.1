@@ -9,6 +9,9 @@ import java.util.Random;
  * Date: 2016/1/24
  */
 public class Captcha {
+
+    public static final String CAPTCHA = "captcha";
+
     private int width;
     private int height;
     private int num;

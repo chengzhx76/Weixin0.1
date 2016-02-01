@@ -4,13 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <!-- 会话Cookie 模板  -->
-  <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-    <property name="name" value="wxsid"/>
-    <property name="httpOnly" value="true"/>
-    <property name="maxAge" value="180000"/>
-  </bean>
-
   <!-- Shiro 的Web过滤器 -->
   <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
     <property name="securityManager" ref="securityManager"/>
@@ -28,6 +21,7 @@
         /login = authc
         /unauth = anon
         /resources/** = anon
+        /static/** = anon
         /drawCheckCode = anon
         /logout = logout
         /** = user
@@ -69,14 +63,17 @@
     <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
   </bean>
 
-  <!-- 基于Form表单的身份验证过滤器，不配置将也会注册此过虑器，表单中的用户账号、密码及loginurl将采用默认值，建议配置 -->
+  <!-- 会话Cookie 模板  -->
+  <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+    <property name="name" value="wxsid"/>
+    <property name="httpOnly" value="true"/>
+    <property name="maxAge" value="180000"/>
+  </bean>
+
   <bean id="formAuthenticationFilter" class="com.cheng.weixin.web.security.WxFormAuthenticationFilter">
-    <!-- 表单中账号的input名称 -->
     <property name="usernameParam" value="username" />
-    <!-- 表单中密码的input名称 -->
     <property name="passwordParam" value="password" />
     <!-- <property name="rememberMeParam" value="rememberMe"/> -->
-    <!-- loginurl：用户登陆地址，此地址是可以http访问的url地址 -->
     <property name="loginUrl" value="/login" />
   </bean>
 

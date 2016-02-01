@@ -28,7 +28,6 @@ public class SystemUtils {
     }
 
     /**
-     * 验证密码
      * @param planinPassword 明文密码
      * @param password 加密的密码
      * @return 验证结果
