@@ -19,9 +19,9 @@
 <body>
 <div class="container">
   <div id="messageBox">
-    <div class="center-block alert alert-danger alert-dismissible" role="alert">
+    <div class="center-block alert alert-danger alert-dismissible ${empty message ? "hidden" : ""}" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <label id="loginError" class="error /*hidden*/">错误消息！</label>
+      <label id="loginError" class="error">${message}</label>
     </div>
   </div>
   <header>
@@ -42,7 +42,7 @@
         <form action="${basePath}/login" method="post">
           <div class="form-group">
             <label for="username">登录名：</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="${username}">
           </div>
           <div class="form-group">
             <label for="password">密码：</label>
