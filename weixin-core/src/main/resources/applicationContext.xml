@@ -25,9 +25,13 @@
 	<context:component-scan base-package="com.cheng.weixin.core" />
 
 	<!-- ehcache 缓存配置 -->
-	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation" value="ehcache.xml"/>
+	<bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml"/>
 	</bean>
 
+	<!-- 默认是cacheManager -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager"  ref="cacheManagerFactory"/>
+	</bean>
 
 </beans>

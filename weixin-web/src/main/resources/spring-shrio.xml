@@ -32,6 +32,7 @@
   <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
     <property name="realm" ref="userRealm" />
     <property name="sessionManager" ref="sessionManager"/>
+    <property name="cacheManager" ref="shiroCache"/>
   </bean>
 
   <!-- 自定义 realm -->
@@ -61,6 +62,7 @@
   <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
     <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
     <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+    <property name="cacheManager" ref="shiroCache"/>
   </bean>
 
   <!-- 会话Cookie 模板  -->
@@ -68,6 +70,11 @@
     <property name="name" value="wxsid"/>
     <property name="httpOnly" value="true"/>
     <property name="maxAge" value="180000"/>
+  </bean>
+
+  <!-- 定义授权缓存管理器 -->
+  <bean id="shiroCache" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+    <property name="cacheManager" ref="cacheManagerFactory"/>
   </bean>
 
   <bean id="formAuthenticationFilter" class="com.cheng.weixin.web.security.WxFormAuthenticationFilter">

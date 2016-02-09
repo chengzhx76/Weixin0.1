@@ -205,6 +205,11 @@
           <version>${shiro-spring.version}</version>
         </dependency>
         <dependency>
+          <groupId>org.apache.shiro</groupId>
+          <artifactId>shiro-ehcache</artifactId>
+          <version>${shrio.version}</version>
+        </dependency>
+        <dependency>
           <groupId>org.aspectj</groupId>
           <artifactId>aspectjrt</artifactId>
           <version>${aspectj.version}</version>
