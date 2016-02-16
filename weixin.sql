@@ -18,8 +18,8 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
@@ -32,4 +32,4 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'cheng', '5cdefe986d7fa0d363930c4062b776bd30a33a3cec47a34291a8bd27', '备注', '2016-01-28 15:47:10', 'NORMAL');
+INSERT INTO `admin` VALUES ('1', 'cheng', '5cdefe986d7fa0d363930c4062b776bd30a33a3cec47a34291a8bd27', '备注', '2016-01-28 15:47:10', 'NORMAL');

@@ -1,8 +1,8 @@
 package com.cheng.weixin.web.security;
 
-import com.cheng.weixin.core.entity.User;
+import com.cheng.weixin.core.entity.Admin;
 import com.cheng.weixin.core.entity.enums.Status;
-import com.cheng.weixin.core.service.IUserService;
+import com.cheng.weixin.core.service.IAdminService;
 import com.cheng.weixin.core.utils.Encodes;
 import com.cheng.weixin.web.utils.Captcha;
 import com.cheng.weixin.web.utils.UserUtils;
@@ -22,7 +22,7 @@ import java.io.Serializable;
  */
 public class SystemAuthorizingRealm extends AuthorizingRealm {
     @Autowired
-    private IUserService userService;
+    private IAdminService adminService;
     // 返回一个唯一的Realm名字
     @Override
     public String getName() {
@@ -46,14 +46,14 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
             }
         }
         // 校验用户名
-        User user = userService.getUserByUsername(token.getUsername());
-        if(user != null) {
-            if(user.getStatus().equals(Status.LOCKED)) {
+        Admin admin = adminService.getUserByUsername(token.getUsername());
+        if(admin != null) {
+            if(admin.getStatus().equals(Status.LOCKED)) {
                 throw new LockedAccountException("msg:该帐号已禁止登录.");
             }
-            byte[] salt = Encodes.decodeHex(user.getPassword().substring(0, 16));
-            return new SimpleAuthenticationInfo(new Principal(user, token.isMobilelogin()),
-                    user.getPassword().substring(16), ByteSource.Util.bytes(salt), getName());
+            byte[] salt = Encodes.decodeHex(admin.getPassword().substring(0, 16));
+            return new SimpleAuthenticationInfo(new Principal(admin, token.isMobilelogin()),
+                    admin.getPassword().substring(16), ByteSource.Util.bytes(salt), getName());
         }
         return null;
     }
@@ -78,7 +78,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
         /** 是否是手机登录 **/
         private boolean mobileLogin;
 
-        public Principal(User user, boolean mobileLogin) {
+        public Principal(Admin user, boolean mobileLogin) {
             this.id = user.getId();
             this.username = user.getUsername();
             this.mobileLogin = mobileLogin;

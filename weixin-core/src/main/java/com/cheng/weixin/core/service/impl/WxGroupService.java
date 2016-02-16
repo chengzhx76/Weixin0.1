@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.cheng.weixin.core.response.model.WxGroup;
-import com.cheng.weixin.core.service.IGroupService;
+import com.cheng.weixin.core.service.IWxGroupService;
 import com.cheng.weixin.core.utils.HttpUtils;
 import com.cheng.weixin.core.utils.WeixinContent;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class GroupService extends BaseService implements IGroupService {
+public class WxGroupService extends BaseService implements IWxGroupService {
 
 	@Override
 	public WxGroup addGroup(String name) {

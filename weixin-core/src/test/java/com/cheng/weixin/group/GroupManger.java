@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.cheng.weixin.core.exception.WeixinException;
 import com.cheng.weixin.core.response.model.WxGroup;
-import com.cheng.weixin.core.service.IGroupService;
+import com.cheng.weixin.core.service.IWxGroupService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class GroupManger {
 //	private BeanFactory factory = new ClassPathXmlApplicationContext("/beans.xml");
 	@Resource
-	private IGroupService groupService;
+	private IWxGroupService groupService;
 
 	@Test
 	public void addGroup() {

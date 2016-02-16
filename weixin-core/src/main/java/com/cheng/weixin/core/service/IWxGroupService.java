@@ -9,7 +9,7 @@ import java.util.List;
  * 微信分组管理
  * @author Cheng
  */
-public interface IGroupService {
+public interface IWxGroupService {
 	/**
 	 * 增加分组
 	 * @param name

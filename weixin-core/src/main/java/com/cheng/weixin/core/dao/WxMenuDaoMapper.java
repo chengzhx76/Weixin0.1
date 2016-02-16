@@ -1,6 +1,6 @@
 package com.cheng.weixin.core.dao;
 
-import com.cheng.weixin.core.entity.Menu;
+import com.cheng.weixin.core.entity.WxMenu;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  * Date: 2016/1/29 0029
  */
 @Repository
-public interface MenuDaoMapper extends BaseDaoMapper<Menu> {
+public interface WxMenuDaoMapper extends BaseDaoMapper<WxMenu> {
 }

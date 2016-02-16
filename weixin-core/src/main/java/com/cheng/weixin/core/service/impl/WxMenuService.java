@@ -1,13 +1,13 @@
 package com.cheng.weixin.core.service.impl;
 
-import com.cheng.weixin.core.service.IMenuService;
+import com.cheng.weixin.core.service.IWxMenuService;
 
 /**
  * Desc: 菜单业务层
  * Author: Cheng
  * Date: 2016/1/29 0029
  */
-public class MenuService extends BaseService implements IMenuService {
+public class WxMenuService extends BaseService implements IWxMenuService {
 
 
 

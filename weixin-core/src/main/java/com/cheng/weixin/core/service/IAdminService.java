@@ -1,7 +1,7 @@
 package com.cheng.weixin.core.service;
 
 
-import com.cheng.weixin.core.entity.User;
+import com.cheng.weixin.core.entity.Admin;
 
 import java.util.List;
 
@@ -10,17 +10,17 @@ import java.util.List;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public interface IUserService {
+public interface IAdminService {
     /**
      * 根据用户名获取用户
      * @param username
      * @return
      */
-    User getUserByUsername(String username);
+    Admin getUserByUsername(String username);
 
     /**
      * 获取所有的用户
      * @return
      */
-    List<User> findAll();
+    List<Admin> findAll();
 }

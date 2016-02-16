@@ -1,9 +1,9 @@
 package com.cheng.weixin.core.entity;
 
 /**
- * Desc: 群组实体类
+ * Desc: 菜单实体
  * Author: Cheng
  * Date: 2016/1/29 0029
  */
-public class Group extends BaseEntity<Group> {
+public class WxMenu extends BaseEntity<WxMenu> {
 }

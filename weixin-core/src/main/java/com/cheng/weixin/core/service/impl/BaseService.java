@@ -1,9 +1,9 @@
 package com.cheng.weixin.core.service.impl;
 
 import com.cheng.weixin.core.common.WeixinUrl;
-import com.cheng.weixin.core.dao.GroupDaoMapper;
-import com.cheng.weixin.core.dao.MenuDaoMapper;
-import com.cheng.weixin.core.dao.UserDaoMapper;
+import com.cheng.weixin.core.dao.WxGroupDaoMapper;
+import com.cheng.weixin.core.dao.WxMenuDaoMapper;
+import com.cheng.weixin.core.dao.AdminDaoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -15,9 +15,9 @@ public abstract class BaseService {
     @Autowired
     protected WeixinUrl weixinUrl;
     @Autowired
-    protected GroupDaoMapper groupDao;
+    protected WxGroupDaoMapper wxgroupDao;
     @Autowired
-    public MenuDaoMapper menuDao;
+    public WxMenuDaoMapper wxmenuDao;
     @Autowired
-    public UserDaoMapper userDao;
+    public AdminDaoMapper adminDao;
 }

@@ -1,7 +1,7 @@
 package com.cheng.weixin.dao;
 
-import com.cheng.weixin.core.dao.UserDaoMapper;
-import com.cheng.weixin.core.entity.User;
+import com.cheng.weixin.core.dao.AdminDaoMapper;
+import com.cheng.weixin.core.entity.Admin;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -30,8 +30,8 @@ public class TestMapper {
     @Test
     public void getUser() {
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserDaoMapper userDaoMapper = sqlSession.getMapper(UserDaoMapper.class);
-        List<User> users = userDaoMapper.loadAll();
+        AdminDaoMapper userDaoMapper = sqlSession.getMapper(AdminDaoMapper.class);
+        List<Admin> users = userDaoMapper.loadAll();
         System.out.println(users);
     }
 

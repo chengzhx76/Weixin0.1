@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheng.weixin.core.dao.AdminDaoMapper">
+
+  <sql id="adminColumns">
+    a.id,a.username,a.password,a.remarks,a.createDate,a.status
+  </sql>
+
+  <!-- 获取用户信息 -->
+  <select id="loadAll" resultType="Admin">
+    select
+      <include refid="adminColumns"/>
+    from
+      admin AS a
+    WHERE
+      u.status!='DELETE'
+  </select>
+  <!-- 根据用户名获取用户 -->
+  <select id="loadUserByUsername" parameterType="String" resultType="Admin">
+    select
+      <include refid="adminColumns"/>
+    from
+      admin AS a
+    WHERE
+      a.username=#{username}
+  </select>
+
+</mapper>
+
