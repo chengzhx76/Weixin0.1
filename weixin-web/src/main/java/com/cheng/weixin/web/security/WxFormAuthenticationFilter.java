@@ -22,7 +22,7 @@ public class WxFormAuthenticationFilter extends FormAuthenticationFilter {
 
     Logger log = LoggerFactory.getLogger(WxFormAuthenticationFilter.class);
 
-    public static final String DEFAULT_CAPTCHA_PARAM = "checkCode";
+    public static final String DEFAULT_CAPTCHA_PARAM = "captcha";
     public static final String DEFAULT_MOBILE_PARAM = "mobileLogin";
     public static final String DEFAULT_MESSAGE_PARAM = "message";
 

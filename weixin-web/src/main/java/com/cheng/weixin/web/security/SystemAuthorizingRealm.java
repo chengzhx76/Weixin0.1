@@ -4,6 +4,8 @@ import com.cheng.weixin.core.entity.User;
 import com.cheng.weixin.core.entity.enums.Status;
 import com.cheng.weixin.core.service.IUserService;
 import com.cheng.weixin.core.utils.Encodes;
+import com.cheng.weixin.web.utils.Captcha;
+import com.cheng.weixin.web.utils.UserUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -21,7 +23,6 @@ import java.io.Serializable;
 public class SystemAuthorizingRealm extends AuthorizingRealm {
     @Autowired
     private IUserService userService;
-
     // 返回一个唯一的Realm名字
     @Override
     public String getName() {
@@ -37,10 +38,18 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
             throws AuthenticationException {
         WxUsernamePasswordToken token = (WxUsernamePasswordToken) authenticationToken;
+        // 判断验证码是否正确
+        if (Captcha.isValidateCodeLogin(token.getUsername(), false, false)) {
+            String captcha = (String) UserUtils.getSession().getAttribute(Captcha.CAPTCHA);
+            if (null == token.getCaptcha() || !token.getCaptcha().equalsIgnoreCase(captcha)) {
+                throw new AuthenticationException("msg:验证码错误，请重试.");
+            }
+        }
+        // 校验用户名
         User user = userService.getUserByUsername(token.getUsername());
         if(user != null) {
             if(user.getStatus().equals(Status.LOCKED)) {
-                throw new LockedAccountException("msg:该帐号已禁止登录");
+                throw new LockedAccountException("msg:该帐号已禁止登录.");
             }
             byte[] salt = Encodes.decodeHex(user.getPassword().substring(0, 16));
             return new SimpleAuthenticationInfo(new Principal(user, token.isMobilelogin()),

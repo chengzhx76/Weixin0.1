@@ -1,7 +1,11 @@
 package com.cheng.weixin.web.utils;
 
+import com.cheng.weixin.core.utils.CacheUtils;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -105,4 +109,32 @@ public class Captcha {
         }
         return img;
     }
+
+    /**
+     * 是否启用验证码登录
+     * @param username 用户名
+     * @param isFail 这次登录是否失败
+     * @param clean 登录成功后记数清零
+     * @return
+     */
+    public static boolean isValidateCodeLogin(String username, boolean isFail, boolean clean) {
+        Map<String, Integer> loginFailMap = (Map<String, Integer>) CacheUtils.getSysCache("loginFailMap");
+        if (null == loginFailMap) {
+            loginFailMap = new HashMap<>();
+            CacheUtils.putSysCache("loginFailMap", loginFailMap);
+        }
+        Integer loginFailNum = loginFailMap.get(username);
+        if (null == loginFailNum) {
+            loginFailNum = 0;
+        }
+        if (isFail) {
+            loginFailNum++;
+            loginFailMap.put(username, loginFailNum);
+        }
+        if (clean) {
+            loginFailMap.remove(username);
+        }
+        return loginFailNum > 3;
+    }
+
 }

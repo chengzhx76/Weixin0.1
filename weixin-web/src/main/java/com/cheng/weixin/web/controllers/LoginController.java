@@ -5,6 +5,7 @@ import com.cheng.weixin.web.security.WxFormAuthenticationFilter;
 import com.cheng.weixin.web.utils.Captcha;
 import com.cheng.weixin.web.utils.UserUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,11 @@ public class LoginController extends BaseController {
     /** 登录失败，登录验证有Shiro来完成 **/
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginFail(HttpServletRequest request, Model model) {
+        Principal principal = UserUtils.getPrincipal();
+        // 如果已经登录则跳转到管理首页
+        if(principal != null) {
+            return "redirect:index";
+        }
         String username = WebUtils.getCleanParam(request, WxFormAuthenticationFilter.DEFAULT_USERNAME_PARAM);
         String exception = (String) request.getAttribute(WxFormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
         String message = (String) request.getAttribute(WxFormAuthenticationFilter.DEFAULT_MESSAGE_PARAM);
@@ -46,6 +52,10 @@ public class LoginController extends BaseController {
         model.addAttribute(WxFormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
         model.addAttribute(WxFormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, exception);
         model.addAttribute(WxFormAuthenticationFilter.DEFAULT_MESSAGE_PARAM, message);
+        // 非授权异常 登录失败验证码加1
+        if (!UnauthorizedException.class.getName().equals(exception)) {
+            model.addAttribute("isValidateCodeLogin", Captcha.isValidateCodeLogin(username, true, false));
+        }
         return "login";
     }
 
@@ -68,8 +78,15 @@ public class LoginController extends BaseController {
         Captcha c = Captcha.getInstance();
         c.set(width, height);
         String checkcode = c.generateCheckcode();
-        session.setAttribute(Captcha.CAPTCHA,checkcode);
+        session.setAttribute(Captcha.CAPTCHA, checkcode);
         OutputStream os = resp.getOutputStream();
         ImageIO.write(c.generateCheckImg(checkcode), "jpg", os);
+    }
+    /** 验证验证码 **/
+    @RequestMapping(value = "checkCaptcha",method = RequestMethod.GET)
+    public void checkCaptcha(HttpServletResponse response, HttpSession session, String captcha) throws IOException {
+        String validateCode = (String) session.getAttribute(Captcha.CAPTCHA);
+        if (null == validateCode) response.getWriter().print(false);
+        response.getWriter().print(captcha.equalsIgnoreCase(validateCode));
     }
 }

@@ -39,16 +39,17 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="form">
-        <form action="${basePath}/login" method="post">
+        <%--<form action="${basePath}/login" method="post">--%>
+        <form id="loginForm" action="" method="post">
           <div class="form-group">
             <label for="username">登录名：</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="${username}">
+            <input type="text" class="form-control" name="username" id="username" required placeholder="Username" value="${username}">
           </div>
           <div class="form-group">
             <label for="password">密码：</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" required placeholder="Password">
           </div>
-          <c:if test="true">
+          <c:if test="${isValidateCodeLogin}">
             <sys:validateCode name="captcha" inputCssStyle="margin-bootom:0;"/>
           </c:if>
           <hr/>
@@ -70,5 +71,10 @@
 
 <script src="${ctxStatic}/js/jquery-1.11.1.min.js"></script>
 <script src="${ctxStatic}/js/bootstrap.js"></script>
+<script src="${ctxStatic}/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(function(){
+});
+</script>
 </body>
 </html>

@@ -3,7 +3,6 @@ package com.cheng.weixin.core.utils;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Desc: 缓存工具类
@@ -11,8 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Date: 2016/2/1 0001
  */
 public class CacheUtils {
-    @Autowired
-    private static CacheManager cacheManager;
+
+    private static CacheManager cacheManager = SpringContextHolder.getBean("cacheManagerFactory");
+
     /** 系统缓存 **/
     private static final String SYS_CACHE="sysCache";
 
@@ -21,7 +21,7 @@ public class CacheUtils {
      * @param key
      * @return
      */
-    public static Object get(String key) {
+    public static Object getSysCache(String key) {
         return get(SYS_CACHE, key);
     }
 
@@ -30,7 +30,7 @@ public class CacheUtils {
      * @param key
      * @param value
      */
-    public static void put(String key, Object value) {
+    public static void putSysCache(String key, Object value) {
         put(SYS_CACHE, key, value);
     }
 
@@ -38,7 +38,7 @@ public class CacheUtils {
      * 移除系统缓存
      * @param key
      */
-    public static void remove(String key) {
+    public static void removeSysCache(String key) {
         remove(SYS_CACHE, key);
     }
     /**
@@ -83,5 +83,4 @@ public class CacheUtils {
         }
         return cache;
     }
-
 }
