@@ -1,13 +1,14 @@
 package com.cheng.weixin.core.entity;
 
-import com.cheng.weixin.core.entity.enums.Status;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
- * Desc: 基础类
+ * Desc: Entity 支持类
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
@@ -15,53 +16,71 @@ public abstract class BaseEntity<T> implements Serializable {
 
     private static final long serialVersionUID = 8560136559317259918L;
     /** 实体编号（唯一标识） **/
-    protected int id;
-    /** 备注 **/
-    protected String remarks;
-    /** 创建时间 **/
-    protected Date createDate;
-    /** 状态 **/
-    private Status status;
+    protected String id;
 
-    public BaseEntity() {
-        this.createDate = new Date();
-        this.status = Status.NORMAL;
-    }
+    /** 是否是新记录（默认：true）， 调用setIsNewRecord()设置新记录，使用自定义ID。
+     * 设置为false后强制执行插入语句，ID不会自动生成，需从手动传入。**/
+    protected boolean isNewRecord = true;
 
-    public int getId() {
+    /**
+     * 插入前执行方法，子类实现
+     */
+    protected abstract void preInsert();
+
+    /**
+     * 更新前执行方法，子类实现
+     */
+    protected abstract void preUpdate();
+
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
-
-    public String getRemarks() {
-        return remarks;
+    /**
+     * 是否是新记录（默认：true），调用setIsNewRecord()设置新记录，使用自定义ID。
+     * 设置为false后强制执行插入语句，ID不会自动生成，需从手动传入。
+     * @return
+     */
+    public boolean getIsNewRecord() {
+        return isNewRecord || StringUtils.isBlank(getId());
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    /**
+     * 是否是新记录（默认：true），调用setIsNewRecord()设置新记录，使用自定义ID。
+     * 设置为false后强制执行插入语句，ID不会自动生成，需从手动传入。
+     */
+    public void setIsNewRecord(boolean isNewRecord) {
+        this.isNewRecord = isNewRecord;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
+    @Override
+    public boolean equals(Object obj) {
+        //if (null == obj) {
+        //    return false;
+        //}
+        //if (this == obj) {
+        //    return true;
+        //}
+        //if (getClass().equals(obj.getClass())) {
+        //    return false;
+        //}
+        //BaseEntity<T> that = (BaseEntity<T>) obj;
+        //return null == this.getId() ? false : this.getId().equals(that.getId());
+        return EqualsBuilder.reflectionEquals(this, obj);
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this);
+        //return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }
