@@ -5,5 +5,5 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/29 0029
  */
-public class WxMenu extends BaseEntity<WxMenu> {
+public class WxMenu extends DataEntity<WxMenu> {
 }

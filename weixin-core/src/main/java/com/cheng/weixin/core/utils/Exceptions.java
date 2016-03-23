@@ -1,5 +1,8 @@
 package com.cheng.weixin.core.utils;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 /**
  * Desc: 异常工具类
  * Author: Cheng
@@ -17,5 +20,19 @@ public class Exceptions {
         }else {
             return new RuntimeException(e);
         }
+    }
+
+    /**
+     * 将错误的堆栈转化为String
+     * @param e
+     * @return
+     */
+    public static String getStackTraceToString(Throwable e) {
+        if (e == null) {
+            return "";
+        }
+        StringWriter stringWriter = new StringWriter();
+        e.printStackTrace(new PrintWriter(stringWriter));
+        return stringWriter.toString();
     }
 }

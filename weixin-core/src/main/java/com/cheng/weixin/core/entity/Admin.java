@@ -5,7 +5,7 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public class Admin extends BaseEntity<Admin> {
+public class Admin extends DataEntity<Admin> {
     /** 用户名 **/
     private String username;
     /** 密码（盐值和密匙） **/

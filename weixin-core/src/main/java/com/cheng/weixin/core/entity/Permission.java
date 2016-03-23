@@ -5,7 +5,7 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public class Permission extends BaseEntity<Permission> {
+public class Permission extends DataEntity<Permission> {
     /** 资源名 **/
     private String name;
     /** 权限代码 **/

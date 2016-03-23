@@ -5,7 +5,7 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public class RolePermission extends BaseEntity<RolePermission> {
+public class RolePermission extends DataEntity<RolePermission> {
     /** 角色ID **/
     private int roleId;
     /** 权限ID **/

@@ -5,5 +5,5 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/29 0029
  */
-public class WxGroup extends BaseEntity<WxGroup> {
+public class WxGroup extends DataEntity<WxGroup> {
 }

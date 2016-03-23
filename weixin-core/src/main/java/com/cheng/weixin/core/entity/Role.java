@@ -4,7 +4,7 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public class Role extends BaseEntity<Role> {
+public class Role extends DataEntity<Role> {
     /** 角色名字 **/
     private String name;
 

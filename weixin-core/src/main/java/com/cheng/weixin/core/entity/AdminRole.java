@@ -5,7 +5,7 @@ package com.cheng.weixin.core.entity;
  * Author: Cheng
  * Date: 2016/1/28 0028
  */
-public class AdminRole extends BaseEntity<AdminRole> {
+public class AdminRole extends DataEntity<AdminRole> {
     /** 用户ID **/
     private int userId;
     /** 角色ID **/

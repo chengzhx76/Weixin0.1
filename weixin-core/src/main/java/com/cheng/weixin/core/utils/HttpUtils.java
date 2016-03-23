@@ -40,7 +40,7 @@ public class HttpUtils {
 			HttpGet httpget = new HttpGet(url);
 			response = httpClient.execute(httpget);
 			int statusCode = response.getStatusLine().getStatusCode();
-			if(statusCode>=HttpStatus.SC_OK&&statusCode<HttpStatus.SC_MULTIPLE_CHOICES) {
+			if(statusCode>=200&&statusCode<300) {
 				HttpEntity entity = response.getEntity();
 				String content = EntityUtils.toString(entity,"UTF-8");
 				httpget.releaseConnection();

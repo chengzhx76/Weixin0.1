@@ -14,10 +14,6 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
 
     /** 备注 **/
     protected String remarks;
-    /** 创建者 **/
-    protected Admin createBy;
-    /** 更新者 **/
-    protected Admin updateBy;
     /** 创建时间 **/
     protected Date createDate;
     /** 更新时间 **/
@@ -26,35 +22,31 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
     protected Status status;
 
     public DataEntity() {
+        super();
         this.status = Status.NORMAL;
     }
 
+    /**
+     * 更新之前需要手动调用
+     */
     @Override
     protected void preUpdate() {
-        if (this.getIsNewRecord()) {
-            super.setId(IdGen.uuid());
-        }
-        //Admin admin =
-        //this.createDate = new Date();
-        //this
     }
 
+    /**
+     * 插入之前执行 需要手动调用
+     */
     @Override
     protected void preInsert() {
-
+        if (isNewRecord) {
+            setId(IdGen.uuid());
+        }
+        this.createDate = new Date();
+        this.updateDate = new Date();
     }
 
     public String getRemarks() {
         return remarks;
-    }
-
-    public Admin getCreateBy() {
-        return createBy;
-    }
-
-    public DataEntity setCreateBy(Admin createBy) {
-        this.createBy = createBy;
-        return this;
     }
 
     public void setRemarks(String remarks) {

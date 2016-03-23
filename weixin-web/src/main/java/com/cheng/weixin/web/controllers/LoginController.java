@@ -5,6 +5,7 @@ import com.cheng.weixin.web.security.WxFormAuthenticationFilter;
 import com.cheng.weixin.web.utils.Captcha;
 import com.cheng.weixin.web.utils.UserUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,11 @@ public class LoginController extends BaseController {
         model.addAttribute(WxFormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
         model.addAttribute(WxFormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, exception);
         model.addAttribute(WxFormAuthenticationFilter.DEFAULT_MESSAGE_PARAM, message);
+
+        // 非授权异常，登录失败，验证码加1。
+        if (!UnauthorizedException.class.getName().equals(exception)){
+            model.addAttribute("isValidateCodeLogin", Captcha.isValidateCodeLogin(username, true, false));
+        }
         return "login";
     }
 

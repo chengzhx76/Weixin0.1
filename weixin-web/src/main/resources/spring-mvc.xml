@@ -37,4 +37,14 @@
 		<property name="prefix" value="/WEB-INF/views/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+
+	<!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/login"/>
+			<bean class="com.cheng.weixin.web.interceptor.LogInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans>

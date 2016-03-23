@@ -72,23 +72,23 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     public static class Principal implements Serializable {
         private static final long serialVersionUID = 2866069566032650619L;
         /** 编号 **/
-        private int id;
+        private String id;
         /** 登录名 **/
         private String username;
         /** 是否是手机登录 **/
         private boolean mobileLogin;
 
-        public Principal(Admin user, boolean mobileLogin) {
-            this.id = user.getId();
-            this.username = user.getUsername();
+        public Principal(Admin admin, boolean mobileLogin) {
+            this.id = admin.getId();
+            this.username = admin.getUsername();
             this.mobileLogin = mobileLogin;
         }
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
