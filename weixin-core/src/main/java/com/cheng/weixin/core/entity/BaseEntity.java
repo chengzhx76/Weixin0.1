@@ -25,12 +25,12 @@ public abstract class BaseEntity<T> implements Serializable {
     /**
      * 插入前执行方法，子类实现
      */
-    protected abstract void preInsert();
+    public abstract void preInsert();
 
     /**
      * 更新前执行方法，子类实现
      */
-    protected abstract void preUpdate();
+    public abstract void preUpdate();
 
 
     public String getId() {

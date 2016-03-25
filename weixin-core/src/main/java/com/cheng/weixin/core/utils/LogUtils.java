@@ -34,17 +34,16 @@ public class LogUtils {
         log.setMethod(request.getMethod());
         log.setUsername(useranem);
         // 异步保存日志
-        new SaveLogThread(log, handler, ex).start();
+        new Thread(new SaveLogThread(log, handler, ex)).start();
     }
 
-    public static class SaveLogThread extends Thread {
+    public static class SaveLogThread implements Runnable {
 
         private Log log;
         private Object handler;
         private Exception ex;
 
         public SaveLogThread(Log log, Object handler, Exception ex) {
-            super(SaveLogThread.class.getSimpleName());
             this.log = log;
             this.handler = handler;
             this.ex = ex;
@@ -61,6 +60,7 @@ public class LogUtils {
                 return;
             }
             // 保存日志信息
+            log.preInsert();
             logDao.save(log);
         }
     }

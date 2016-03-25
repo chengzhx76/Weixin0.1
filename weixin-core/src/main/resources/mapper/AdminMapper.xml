@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cheng.weixin.core.dao.AdminDaoMapper">
-
+  <sql id="tableName">admin</sql>
   <sql id="adminColumns">
-    a.id,a.username,a.password,a.remarks,a.createDate,a.status
+    a.id,a.username,a.password,a.remarks,a.create_date,a.update_date,a.status
   </sql>
 
   <!-- 获取用户信息 -->
@@ -12,7 +12,7 @@
     select
       <include refid="adminColumns"/>
     from
-      admin AS a
+      <include refid="tableName"/> AS a
     WHERE
       u.status!='DELETE'
   </select>
@@ -21,7 +21,7 @@
     select
       <include refid="adminColumns"/>
     from
-      admin AS a
+      <include refid="tableName"/> AS a
     WHERE
       a.username=#{username}
   </select>

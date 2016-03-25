@@ -45,10 +45,10 @@
     <constructor-arg index="0" ref="sqlSessionFactory"/>
   </bean>
 
-	<!-- mybatis文件配置，扫描所有mapper文件 -->
-	<!-- configLocation为mybatis属性mapperLocations为所有mapper -->
+	<!-- mybatis配置 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
+    p:configLocation="classpath:/mybatis-config.xml"
 		p:typeAliasesPackage="com.cheng.weixin.core.entity"
 		p:mapperLocations="classpath:/mapper/*.xml" />
 

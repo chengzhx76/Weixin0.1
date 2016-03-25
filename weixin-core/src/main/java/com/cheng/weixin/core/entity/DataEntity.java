@@ -30,14 +30,15 @@ public abstract class DataEntity<T> extends BaseEntity<T> {
      * 更新之前需要手动调用
      */
     @Override
-    protected void preUpdate() {
+    public void preUpdate() {
+        this.updateDate = new Date();
     }
 
     /**
      * 插入之前执行 需要手动调用
      */
     @Override
-    protected void preInsert() {
+    public void preInsert() {
         if (isNewRecord) {
             setId(IdGen.uuid());
         }
