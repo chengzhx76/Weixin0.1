@@ -38,25 +38,20 @@ public class LogUtils {
     }
 
     public static class SaveLogThread implements Runnable {
-
         private Log log;
         private Object handler;
         private Exception ex;
-
         public SaveLogThread(Log log, Object handler, Exception ex) {
             this.log = log;
             this.handler = handler;
             this.ex = ex;
         }
-
         @Override
         public void run() {
             // 如果有异常，则保存异常信息
             log.setException(Exceptions.getStackTraceToString(ex));
-//            if (StringUtils.isBlank(log.getTitle()) && StringUtils.isBlank(log.getException())) {
-//                return;
-//            }
-            if (StringUtils.isBlank(log.getException())) {
+            // 如果无标的并无异常日志，则不保存信息
+            if (StringUtils.isBlank(log.getTitle()) && StringUtils.isBlank(log.getException())) {
                 return;
             }
             // 保存日志信息

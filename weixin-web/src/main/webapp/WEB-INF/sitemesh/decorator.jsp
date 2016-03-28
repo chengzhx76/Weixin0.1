@@ -30,8 +30,8 @@
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span> admin <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> 资料</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+                            <li><a href="myinfo"><span class="glyphicon glyphicon-th-list"></span> 资料</a></li>
+                            <%--<li><a href="selfedit"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>--%>
                             <li class="divider"></li>
                             <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
                         </ul>
